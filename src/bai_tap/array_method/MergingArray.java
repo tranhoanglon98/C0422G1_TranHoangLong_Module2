@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class MergingArray {
     public static void main(String[] args) {
-        int[] arr1 = DeclareArray("arr1");
-        int[] arr2 = DeclareArray("arr2");
+        int[] arr1 = declareArray("arr1");
+        int[] arr2 = declareArray("arr2");
         int lengthArr3 = arr1.length + arr2.length;
         int[] arr3 = new int[lengthArr3];
         System.arraycopy(arr1, 0, arr3, 0, arr1.length);
@@ -16,7 +16,7 @@ public class MergingArray {
         System.out.println("arr3 = " + Arrays.toString(arr3));
     }
 
-    public static int[] DeclareArray(String arrayName) {
+    public static int[] declareArray(String arrayName) {
         Scanner scanner = new Scanner(System.in);
         int length;
         do {

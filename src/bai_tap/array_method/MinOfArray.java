@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MinOfArray {
     public static void main(String[] args) {
-        int[] array = MergingArray.DeclareArray("array");
+        int[] array = MergingArray.declareArray("array");
         System.out.println(Arrays.toString(array));
         int min = array[0];
         for (int a : array) {
