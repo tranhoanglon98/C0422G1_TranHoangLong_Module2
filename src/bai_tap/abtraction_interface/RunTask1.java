@@ -14,11 +14,11 @@ public class RunTask1 {
         }
         for (Shape shape : shapes) {
             if (shape instanceof Circle) {
-                ((Circle) shape).resize(50);
+                ((Circle) shape).resize(Math.random()*100);
             } else if (shape instanceof Rectangle) {
-                ((Rectangle) shape).resize(40);
+                ((Rectangle) shape).resize(Math.random()*100);
             } else {
-                ((Square) shape).resize(44);
+                ((Square) shape).resize(Math.random()*100);
             }
         }
         System.out.println("********************** Before resize **********************");
