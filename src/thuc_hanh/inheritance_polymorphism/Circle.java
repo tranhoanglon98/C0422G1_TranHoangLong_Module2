@@ -1,6 +1,6 @@
 package thuc_hanh.inheritance_polymorphism;
 
-public class Circle extends Shape {
+public class Circle extends Shape  {
     private double radius = 1.0;
 
     public Circle() {
@@ -36,4 +36,5 @@ public class Circle extends Shape {
         return " A Circle with radius: " + radius + ".\n" +
                 "which is a subclass of " + super.toString();
     }
+
 }
