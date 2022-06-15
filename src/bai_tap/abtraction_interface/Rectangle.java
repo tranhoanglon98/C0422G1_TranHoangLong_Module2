@@ -1,4 +1,4 @@
-package bai_tap.abtraction_interface.task1;
+package bai_tap.abtraction_interface;
 
 public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;

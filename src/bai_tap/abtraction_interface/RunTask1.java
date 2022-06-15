@@ -1,7 +1,7 @@
-package bai_tap.abtraction_interface.task1;
+package bai_tap.abtraction_interface;
 
 
-public class Run {
+public class RunTask1 {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(5);

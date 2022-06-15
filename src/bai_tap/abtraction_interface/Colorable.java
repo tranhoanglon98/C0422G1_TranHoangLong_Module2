@@ -1,4 +1,4 @@
-package bai_tap.abtraction_interface.task2;
+package bai_tap.abtraction_interface;
 
 public interface Colorable {
     void howToColor();

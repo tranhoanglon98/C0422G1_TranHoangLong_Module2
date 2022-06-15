@@ -1,4 +1,4 @@
-package bai_tap.abtraction_interface.task1;
+package bai_tap.abtraction_interface;
 
 public class Circle extends Shape implements Resizeable {
     private double radius = 1.0;
