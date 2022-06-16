@@ -7,62 +7,57 @@ public class TennisGame {
         final int fifteen = 1;
         final int thirty = 2;
         final int forty = 3;
-        StringBuilder score = new StringBuilder();
+        String score = "";
         int tempScore;
         boolean isDeuce = player1Score == player2Score;
         if (isDeuce) {
             switch (player1Score) {
                 case love:
-                    score = new StringBuilder("Love-All");
+                    score = "Love-All";
                     break;
                 case fifteen:
-                    score = new StringBuilder("Fifteen-All");
+                    score = "Fifteen-All";
                     break;
                 case thirty:
-                    score = new StringBuilder("Thirty-All");
+                    score = "Thirty-All";
                     break;
                 case forty:
-                    score = new StringBuilder("Forty-All");
+                    score = "Forty-All";
                     break;
                 default:
-                    score = new StringBuilder("Deuce");
+                    score = "Deuce";
                     break;
 
             }
         } else if (player1Score > forty || player2Score > forty) {
             int minusResult = player1Score - player2Score;
-            if (minusResult == 1) {
-                score = new StringBuilder("Advantage " + player1Name);
-            } else if (minusResult == -1) {
-                score = new StringBuilder("Advantage " + player2Name);
-            } else if (minusResult >= 2) {
-                score = new StringBuilder("Win for " + player1Name);
-            } else {
-                score = new StringBuilder("Win for " + player2Name);
-            }
+            if (minusResult == 1) score = "Advantage " + player1Name;
+            else if (minusResult == -1) score = "Advantage " + player2Name;
+            else if (minusResult >= 2) score = "Win for " + player1Name;
+            else score = "Win for " + player2Name;
         } else {
             for (int i = 1; i < 3; i++) {
                 if (i == 1) tempScore = player1Score;
                 else {
-                    score.append("-");
+                    score += "-";
                     tempScore = player2Score;
                 }
                 switch (tempScore) {
                     case love:
-                        score.append("Love");
+                        score += "Love";
                         break;
                     case fifteen:
-                        score.append("Fifteen");
+                        score += "Fifteen";
                         break;
                     case thirty:
-                        score.append("Thirty");
+                        score += "Thirty";
                         break;
                     case forty:
-                        score.append("Forty");
+                        score += "Forty";
                         break;
                 }
             }
         }
-        return score.toString();
+        return score;
     }
 }
