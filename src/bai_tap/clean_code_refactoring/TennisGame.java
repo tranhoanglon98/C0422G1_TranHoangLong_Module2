@@ -35,7 +35,7 @@ public class TennisGame {
         }
     }
 
-    public static String setScore(int player1Score, int player2Score) {
+    public static String unequalScore(int player1Score, int player2Score) {
         int tempScore;
         StringBuilder score = new StringBuilder();
         for (int i = 1; i < 3; i++) {
@@ -70,7 +70,7 @@ public class TennisGame {
         } else if (player1Score > FORTY || player2Score > FORTY) {
             score = getFinishScore(player1Name, player2Name, player1Score, player2Score);
         } else {
-            score = setScore(player1Score, player2Score);
+            score = unequalScore(player1Score, player2Score);
         }
         return score;
     }
