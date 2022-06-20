@@ -16,6 +16,7 @@ public class Bracket {
             } else {
                 if (characterStack.isEmpty()) {
                     isExpression = false;
+                    break;
                 } else {
                     characterStack.pop();
                 }
