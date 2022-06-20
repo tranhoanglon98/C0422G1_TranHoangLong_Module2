@@ -1,5 +1,6 @@
 package bai_tap.collection_framework.arrayList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -78,5 +79,4 @@ public class MyList<E> {
         }
         size = 0;
     }
-
 }
