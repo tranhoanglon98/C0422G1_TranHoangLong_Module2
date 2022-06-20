@@ -13,7 +13,7 @@ public class Bracket {
         for (int i = 0; i < expression.length(); i++) {
             if (expression.charAt(i) == '(') {
                 characterStack.push(expression.charAt(i));
-            } else {
+            } else if (expression.charAt(i) == ')') {
                 if (characterStack.isEmpty()) {
                     isExpression = false;
                     break;
