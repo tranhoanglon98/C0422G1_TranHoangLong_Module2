@@ -109,9 +109,9 @@ public class ProductsManager {
                 System.out.println(id + " does not exist, enter again: ");
             }
         } while (!checkId(id));
-        for (Product p : Product.productList) {
-            if (p.getId() == id) {
-                Product.productList.remove(p);
+        for (int i = 0; i < Product.productList.size(); i++) {
+            if (Product.productList.get(i).getId() == id) {
+                Product.productList.remove(i);
             }
         }
         System.out.println("..............Deleted..............");
@@ -150,10 +150,10 @@ public class ProductsManager {
         int choice;
         do {
             choice = Integer.parseInt(scanner.nextLine());
-            if (choice != 1 || choice != 2) {
+            if (choice != 1 && choice != 2) {
                 System.out.println("just choose 1 or 2, choose again:");
             }
-        } while (choice != 1 || choice != 2);
+        } while (choice != 1 && choice != 2);
 
         switch (choice) {
             case 1:
