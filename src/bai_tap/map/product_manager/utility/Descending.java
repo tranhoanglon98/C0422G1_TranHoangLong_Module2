@@ -1,6 +1,6 @@
-package bai_tap.map.product_manager.comparetor;
+package bai_tap.map.product_manager.utility;
 
-import bai_tap.map.product_manager.Product;
+import bai_tap.map.product_manager.model.Product;
 
 import java.util.Comparator;
 

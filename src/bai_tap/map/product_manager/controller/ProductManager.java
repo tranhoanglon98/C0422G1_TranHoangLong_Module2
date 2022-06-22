@@ -1,56 +1,31 @@
-package bai_tap.map.product_manager;
+package bai_tap.map.product_manager.controller;
 
-import bai_tap.map.product_manager.comparetor.Ascending;
-import bai_tap.map.product_manager.comparetor.Descending;
+import bai_tap.map.product_manager.model.Product;
+import bai_tap.map.product_manager.service.IProduct;
+import bai_tap.map.product_manager.service.IProductManager;
+import bai_tap.map.product_manager.utility.Ascending;
+import bai_tap.map.product_manager.utility.Descending;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ProductsManager {
+public class ProductManager implements IProductManager, IProduct {
+    static ArrayList<Product> productList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    public static void choose() {
-        int choose;
-        do {
-            System.out.println("1. add" +
-                    "\n2. Edit" +
-                    "\n3. Delete" +
-                    "\n4. Display" +
-                    "\n5. Search" +
-                    "\n6. Sort" +
-                    "\n7. Exit");
-            System.out.println("Enter your choice:");
-            choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
-                case 1:
-                    add();
-                    break;
-                case 2:
-                    edit();
-                    break;
-                case 3:
-                    delete();
-                    break;
-                case 4:
-                    display();
-                    break;
-                case 5:
-                    search();
-                    break;
-                case 6:
-                    sort();
-                    break;
-                case 7:
-                    System.out.println(".........End.........");
-                    break;
-                default:
-                    System.out.println("just choose from 1 to 7, choose again.");
+    @Override
+    public boolean checkId(int id) {
+        for (Product p : productList) {
+            if (p.getId() == id) {
+                return true;
             }
-        } while (choose != 7);
-
+        }
+        return false;
     }
 
-    public static void add() {
+    @Override
+    public void add() {
         System.out.println("-------------------------------------");
         int id;
         do {
@@ -64,11 +39,12 @@ public class ProductsManager {
         String productName = scanner.nextLine();
         System.out.println("Enter price:");
         double price = Double.parseDouble(scanner.nextLine());
-        Product.productList.add(new Product(id, productName, price));
+        productList.add(new Product(id, productName, price));
         System.out.println("..............Added..............");
     }
 
-    public static void edit() {
+    @Override
+    public void editById() {
         System.out.println("-------------------------------------");
         int id;
         do {
@@ -79,7 +55,7 @@ public class ProductsManager {
             }
         } while (!checkId(id));
 
-        for (Product p : Product.productList) {
+        for (Product p : productList) {
             if (p.getId() == id) {
                 System.out.println("Enter information you want to change:");
                 int newID;
@@ -99,7 +75,8 @@ public class ProductsManager {
         }
     }
 
-    public static void delete() {
+    @Override
+    public void deleteById() {
         System.out.println("-------------------------------------");
         int id;
         do {
@@ -109,23 +86,25 @@ public class ProductsManager {
                 System.out.println(id + " does not exist, enter again: ");
             }
         } while (!checkId(id));
-        for (int i = 0; i < Product.productList.size(); i++) {
-            if (Product.productList.get(i).getId() == id) {
-                Product.productList.remove(i);
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == id) {
+                productList.remove(i);
             }
         }
         System.out.println("..............Deleted..............");
     }
 
-    public static void display() {
+    @Override
+    public void display() {
         System.out.println("-------------------------------------");
         System.out.println("product list:");
-        for (Product p : Product.productList) {
+        for (Product p : productList) {
             System.out.println(p);
         }
     }
 
-    public static void search() {
+    @Override
+    public void searchById() {
         System.out.println("-------------------------------------");
         int id;
         do {
@@ -135,14 +114,15 @@ public class ProductsManager {
                 System.out.println(id + " does not exist, enter again: ");
             }
         } while (!checkId(id));
-        for (Product p : Product.productList) {
+        for (Product p : productList) {
             if (p.getId() == id) {
                 System.out.println(p);
             }
         }
     }
 
-    public static void sort() {
+    @Override
+    public void sort() {
         System.out.println("-------------------------------------");
         System.out.println("choose your options:" +
                 "\n1. Ascending" +
@@ -157,25 +137,53 @@ public class ProductsManager {
 
         switch (choice) {
             case 1:
-                Collections.sort(Product.productList, new Ascending());
+                Collections.sort(productList, new Ascending());
                 break;
             case 2:
-                Collections.sort(Product.productList, new Descending());
+                Collections.sort(productList, new Descending());
                 break;
         }
         System.out.println("..............Sorted..............");
     }
 
-    public static boolean checkId(int id) {
-        for (Product p : Product.productList) {
-            if (p.getId() == id) {
-                return true;
+    @Override
+    public void choose() {
+        int choose;
+        do {
+            System.out.println("1. add" +
+                    "\n2. Edit" +
+                    "\n3. Delete" +
+                    "\n4. Display" +
+                    "\n5. Search" +
+                    "\n6. Sort" +
+                    "\n7. Exit");
+            System.out.println("Enter your choice:");
+            choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    add();
+                    break;
+                case 2:
+                    editById();
+                    break;
+                case 3:
+                    deleteById();
+                    break;
+                case 4:
+                    display();
+                    break;
+                case 5:
+                    searchById();
+                    break;
+                case 6:
+                    sort();
+                    break;
+                case 7:
+                    System.out.println(".........End.........");
+                    break;
+                default:
+                    System.out.println("just choose from 1 to 7, choose again.");
             }
-        }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        choose();
+        } while (choose != 7);
     }
 }

@@ -1,4 +1,4 @@
-package bai_tap.map.product_manager;
+package bai_tap.map.product_manager.model;
 
 import java.util.ArrayList;
 import java.util.Objects;
