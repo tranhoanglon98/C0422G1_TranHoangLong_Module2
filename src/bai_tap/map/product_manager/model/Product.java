@@ -1,13 +1,11 @@
 package bai_tap.map.product_manager.model;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Product {
     private int id;
     private String name;
     private double price;
-    static ArrayList<Product> productList = new ArrayList<>();
 
     public Product() {
     }
@@ -44,19 +42,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "product: "+name + " - id: " + id + " - price: " +price;
+        return "product: " + name + " - id: " + id + " - price: " + price;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id == product.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
