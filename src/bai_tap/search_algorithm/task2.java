@@ -9,17 +9,14 @@ public class task2 {
         System.out.println("Enter a string");
         String string = scanner.nextLine();
         ArrayList<Character> maxList = new ArrayList<>();
-
-        for (int i = 0; i < string.length(); i++) {
-            ArrayList<Character> characters = new ArrayList<>();
-            characters.add(string.charAt(i));
-            for (int j = i + 1; j < string.length(); j++) {
-                int lastIndex = characters.size() - 1;
-                if (string.charAt(j) > characters.get(lastIndex)) {
-                    characters.add(string.charAt(j));
-                } else {
-                    break;
-                }
+        ArrayList<Character> characters = new ArrayList<>();
+        characters.add(string.charAt(0));
+        for (int i = 1; i < string.length() - 1; i++) {
+            if (string.charAt(i + 1) > string.charAt(i)) {
+                characters.add(string.charAt(i + 1));
+            } else {
+                characters.clear();
+                characters.add(string.charAt(i + 1));
             }
 
             if (characters.size() > maxList.size()) {
