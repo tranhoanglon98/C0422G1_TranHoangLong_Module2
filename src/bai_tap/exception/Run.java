@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Run {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean flag;
+        Triangle triangle = new Triangle();
         do {
             try {
                 System.out.println("Nhập cạnh a.");
@@ -15,17 +15,15 @@ public class Run {
                 int b = Integer.parseInt(scanner.nextLine());
                 System.out.println("Nhập cạnh c.");
                 int c = Integer.parseInt(scanner.nextLine());
-                Triangle triangle = new Triangle(a,b,c);
-                System.out.println(a + "," + b +"," + c + " là ba cạnh của tam giác.");
-                flag = true;
+                triangle.checkTriangle(a, b, c);
+                System.out.println(a + "," + b + "," + c + " là ba cạnh của tam giác.");
+                break;
 
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 e.printStackTrace();
-                flag=false;
             } catch (IllegalTriangleException e) {
-                flag =false;
                 e.printStackTrace();
             }
-        }while (!flag);
+        } while (true);
     }
 }
