@@ -9,20 +9,19 @@ public class Run {
         Triangle triangle = new Triangle();
         do {
             try {
-                System.out.println("Nhập cạnh a.");
+                System.out.println("Nhập cạnh a:");
                 int a = Integer.parseInt(scanner.nextLine());
-                System.out.println("Nhập cạnh b.");
+                System.out.println("Nhập cạnh b:");
                 int b = Integer.parseInt(scanner.nextLine());
-                System.out.println("Nhập cạnh c.");
+                System.out.println("Nhập cạnh c:");
                 int c = Integer.parseInt(scanner.nextLine());
-                triangle.checkTriangle(a, b, c);
-                System.out.println(a + "," + b + "," + c + " là ba cạnh của tam giác.");
+                triangle.setABC(a, b, c);
+                System.out.println(a + "," + b + "," + c + " là ba cạnh của một tam giác.");
                 break;
 
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            } catch (IllegalTriangleException e) {
-                e.printStackTrace();
+            } catch (NumberFormatException | IllegalTriangleException e) {
+                System.out.println("Exception: " + e.getMessage());
+                System.out.println("Hãy nhập lại");
             }
         } while (true);
     }
