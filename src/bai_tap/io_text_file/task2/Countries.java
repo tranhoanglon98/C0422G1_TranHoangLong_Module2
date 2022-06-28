@@ -42,4 +42,8 @@ public class Countries {
     public String toString() {
         return "id : " + id + ", code : " + code + ", name : " + name ;
     }
+
+    public String getInfoToCsv(){
+        return id + "," + code + "," + name;
+    }
 }
